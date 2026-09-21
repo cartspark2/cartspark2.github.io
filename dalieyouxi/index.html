@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打猎游戏 - 沉浸式狩猎体验与游戏指南</title>
+    <meta name="description" content="探索顶级打猎游戏推荐，包括写实风格与模拟经营类打猎游戏。提供游戏攻略、武器选择建议及狩猎技巧指南，助你成为丛林之王。">
+    <meta name="keywords" content="打猎游戏,狩猎游戏,模拟狩猎,打猎攻略,射击游戏">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d35400;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/hunting/1920/600') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.6rem;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .card-content {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.6rem;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .card-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-box {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .ranking-list {
+            list-style: none;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .ranking-num {
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.8rem;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .ranking-item:nth-child(1) .ranking-num { background-color: #e74c3c; }
+        .ranking-item:nth-child(2) .ranking-num { background-color: #f39c12; }
+        .ranking-item:nth-child(3) .ranking-num { background-color: #27ae60; }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .guide-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .guide-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .guide-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .guide-text p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <span>🏹</span> 狩猎世界
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#games">游戏库</a></li>
+                <li><a href="#guides">攻略指南</a></li>
+                <li><a href="#community">社区论坛</a></li>
+                <li><a href="#" class="nav-btn">立即下载</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>探索真实的打猎游戏世界</h1>
+        <p>从写实模拟到策略经营，我们为您精选最优质的狩猎体验。掌握生存技巧，成为丛林之王。</p>
+        <a href="#games" class="cta-button">开始狩猎之旅</a>
+    </div>
+</div>
+
+<main class="container">
+    <!-- Left Column: Content -->
+    <div class="main-content">
+        
+        <!-- Featured Games -->
+        <section id="games">
+            <div class="section-header">
+                <h2 class="section-title">热门打猎游戏推荐</h2>
+                <a href="#" style="font-size: 0.9rem; color: var(--accent-color);">查看全部 ></a>
+            </div>
+            
+            <div class="game-grid">
+                <!-- Game 1 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-badge">写实模拟</span>
+                        <img src="https://picsum.photos/seed/hunting1/400/300" alt="猎人模拟器游戏截图">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">荒野猎人：生存</h3>
+                        <p class="card-desc">体验极度写实的生存机制，你需要追踪、射击并处理猎物。包含动态天气系统和复杂的生态系统。</p>
+                        <div class="card-meta">
+                            <span>平台: PC / PS5</span>
+                            <span>评分: 9.2</span>
+                        </div>
+                        <a href="#" class="card-btn">查看详情</a>
+                    </div>
+                </article>
+
+                <!-- Game 2 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-badge">策略经营</span>
+                        <img src="https://picsum.photos/seed/hunting2/400/300" alt="狩猎庄园游戏截图">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">狩猎庄园</h3>
+                        <p class="card-desc">经营你的家族狩猎庄园，扩建设施，招募猎人，通过合法狩猎获取资源并发展你的商业帝国。</p>
+                        <div class="card-meta">
+                            <span>平台: 全平台</span>
+                            <span>评分: 8.5</span>
+                        </div>
+                        <a href="#" class="card-btn">查看详情</a>
+                    </div>
+                </article>
+
+                <!-- Game 3 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-badge">科幻射击</span>
+                        <img src="https://picsum.photos/seed/hunting3/400/300" alt="机械猎人游戏截图">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">机械猎手：代号Zero</h3>
+                        <p class="card-desc">在未来废土中，驾驶重型外骨骼机甲，猎杀变异巨兽。快节奏的射击与机甲改装玩法。</p>
+                        <div class="card-meta">
+                            <span>平台: PC / Xbox</span>
+                            <span>评分: 8.8</span>
+                        </div>
+                        <a href="#" class="card-btn">查看详情</a>
+                    </div>
+                </article>
+
+                <!-- Game 4 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-badge">开放世界</span>
+                        <img src="https://picsum.photos/seed/hunting4/400/300" alt="美洲大猎物截图">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">美洲大猎物</h3>
+                        <p class="card-desc">横跨北美大陆，从佛罗里达的沼泽到阿拉斯加的雪山。追踪超过100种真实存在的动物。</p>
+                        <div class="card-meta">
+                            <span>平台: PC</span>
+                            <span>评分: 9.0</span>
+                        </div>
+                        <a href="#" class="card-btn">查看详情</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guides">
+            <div class="section-header">
+                <h2 class="section-title">新手狩猎指南</h2>
+            </div>
+            
+            <div class="guide-section">
+                <div class="guide-grid">
+                    <div class="guide-item">
+                        <div class="guide-icon">🎯</div>
+                        <div class="guide-text">
+                            <h3>瞄准与射击技巧</h3>
+                            <p>了解后坐力控制、风向影响以及不同距离下的弹道计算，是成为神枪手的第一步。</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-icon">🦌</div>
+                        <div class="guide-text">
+                            <h3>动物行为学分析</h3>
+                            <p>学习如何通过脚印、粪便和叫声判断动物的种类、数量和移动方向。</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-icon">🎒</div>
+                        <div class="guide-text">
+                            <h3>装备选择建议</h3>
+                            <p>从复合弓到高倍率狙击枪，根据地形和猎物大小选择最合适的武器与配件。</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-icon">🌲</div>
+                        <div class="guide-text">
+                            <h3>环境伪装与潜行</h3>
+                            <p>利用环境色差和植被进行伪装。记住，在狩猎游戏中，被猎物发现往往意味着失败。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Right Column: Sidebar -->
+    <aside>
+        <!-- Top Games Ranking -->
+        <div class="sidebar-box">
+            <h3 class="sidebar-title">年度热门榜单</h3>
+            <ul class="ranking-list">
+                <li class="ranking-item">
+                    <span class="ranking-num">1</span>
+                    <a href="#">荒野猎人：生存</a>
+                </li>
+                <li class="ranking-item">
+                    <span class="ranking-num">2</span>
+                    <a href="#">美洲大猎物 2</a>
+                </li>
+                <li class="ranking-item">
+                    <span class="ranking-num">3</span>
+                    <a href="#">狩猎庄园</a>
+                </li>
+                <li class="ranking-item">
+                    <span class="ranking-num">4</span>
+                    <a href="#">机械猎手：代号Zero</a>
+                </li>
+                <li class="ranking-item">
+                    <span class="ranking-num">5</span>
+                    <a href="#">原始部落：狩猎</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tips Widget -->
+        <div class="sidebar-box">
+            <h3 class="sidebar-title">每日狩猎贴士</h3>
+            <p style="font-size: 0.9rem; color: #555; margin-bottom: 0.5rem;">
+                <strong>Tip:</strong> 在清晨和黄昏时分，动物的活动最为频繁。这是观察和狩猎的最佳时间窗口。
+            </p>
+            <p style="font-size: 0.9rem; color: #555;">
+                <strong>Warning:</strong> 请遵守当地法律法规，在游戏中模拟狩猎时，请勿伤害保护动物。
+            </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="sidebar-box">
+            <h3 class="sidebar-title">订阅更新</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1rem;">获取最新打猎游戏资讯与独家折扣。</p>
+            <input type="email" placeholder="输入您的邮箱" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 0.5rem;">
+            <button style="width: 100%; padding: 0.5rem; background-color: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">订阅</button>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于狩猎世界</h4>
+            <p style="font-size: 0.9rem; color: #bdc3c7; line-height: 1.6;">
+                我们致力于为全球玩家提供最全面、最专业的打猎游戏资讯与攻略服务。探索自然的奥秘，享受狩猎的乐趣。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>游戏分类</h4>
+            <ul>
+                <li><a href="#">写实模拟</a></li>
+                <li><a href="#">策略经营</a></li>
+                <li><a href="#">开放世界</a></li>
+                <li><a href="#">科幻射击</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>支持与帮助</h4>
+            <ul>
+                <li><a href="#">常见问题</a></li>
+                <li><a href="#">联系客服</a></li>
+                <li><a href="#">隐私政策</a></li>
+                <li><a href="#">用户协议</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>关注我们</h4>
+            <ul>
+                <li><a href="#">微信公众号</a></li>
+                <li><a href="#">微博</a></li>
+                <li><a href="#">Discord社区</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 狩猎世界. 保留所有权利. 本网站仅供游戏资讯展示，不涉及现实狩猎活动。
+    </div>
+</footer>
+
+</body>
+</html>
