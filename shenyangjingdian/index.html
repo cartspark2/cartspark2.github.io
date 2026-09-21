@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="沈阳景点排行榜 - 汇集沈阳必游打卡地、历史文化景点及自然风光推荐。本站提供详细的沈阳旅游攻略、景点门票信息及游玩路线规划，助您深度游览沈阳。">
+    <meta name="keywords" content="沈阳景点排行榜,沈阳旅游攻略,沈阳必去景点,沈阳旅游指南,沈阳景点推荐">
+    <title>沈阳景点排行榜 - 沈阳必去打卡地与旅游攻略指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d32f2f; /* 沈阳故宫红 */
+            --secondary-color: #f5f5f5;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f9f9f9;
+            --bg-card: #ffffff;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/shenyang_hero/1920/600') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* 统计/分类栏 */
+        .stats-bar {
+            background-color: var(--bg-card);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* 排行榜主体 */
+        .ranking-section {
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        /* 排行榜列表 */
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .ranking-item {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .ranking-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .rank-badge {
+            width: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .rank-badge.top-3 {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .rank-badge.top-2 {
+            background-color: #ff9800;
+        }
+
+        .rank-badge.top-1 {
+            background-color: #e91e63;
+            font-size: 2rem;
+        }
+
+        .rank-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .rank-thumb {
+            width: 160px;
+            height: 120px;
+            border-radius: 4px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .rank-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .rank-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .rank-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .tag.hot {
+            background-color: #ffebee;
+            color: var(--primary-color);
+        }
+
+        .rank-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .rank-btn {
+            margin-top: 1rem;
+            align-self: flex-start;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .rank-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        /* 按分类浏览 */
+        .categories-section {
+            padding: 3rem 0;
+            background-color: white;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background-color: var(--bg-body);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .category-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* 游玩建议 */
+        .tips-section {
+            padding: 3rem 0;
+        }
+
+        .tips-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .tips-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tips-card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .tips-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tips-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 3rem 0;
+            background-color: white;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            display: none;
+            padding-left: 1rem;
+            border-left: 3px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c2c2c;
+            color: #ccc;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none; /* 简化处理，移动端隐藏菜单 */
+            }
+
+            .rank-content {
+                flex-direction: column;
+            }
+
+            .rank-thumb {
+                width: 100%;
+                height: 180px;
+            }
+
+            .tips-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L8 6h8l-4-4zm-2 6l-4 4h8l-4-4zm2 6l-4 4h8l-4-4z"/>
+                </svg>
+                沈阳景点排行榜
+            </a>
+            <nav class="nav-links">
+                <a href="#top">首页</a>
+                <a href="#ranking">热门榜单</a>
+                <a href="#categories">分类推荐</a>
+                <a href="#tips">游玩攻略</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索盛京，遇见沈阳</h1>
+            <p>汇集全网最全沈阳景点排行榜，为您精选历史文化、自然风光与城市地标，助您规划完美的沈阳之旅。</p>
+        </div>
+    </section>
+
+    <section class="container stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>精选必去景点</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>本地人推荐路线</p>
+            </div>
+            <div class="stat-item">
+                <h3>24h</h3>
+                <p>全天候旅游咨询</p>
+            </div>
+            <div class="stat-item">
+                <h3>0</h3>
+                <p>隐形消费陷阱</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container ranking-section">
+        <div class="section-header">
+            <div>
+                <h2>沈阳景点 TOP 5 排行榜</h2>
+                <p>基于游客评分、网络热度及口碑推荐的权威榜单</p>
+            </div>
+        </div>
+
+        <div class="ranking-list">
+            <!-- 第1名 -->
+            <article class="ranking-item">
+                <div class="rank-badge top-1">1</div>
+                <div class="rank-content">
+                    <img src="https://picsum.photos/seed/shenyang_gugong/320/240" alt="沈阳故宫博物院" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">沈阳故宫博物院</h3>
+                        <div class="rank-meta">
+                            <span class="tag hot">必去地标</span>
+                            <span>⭐ 4.9分 (5.2万+评价)</span>
+                            <span>📍 沈河区沈阳路171号</span>
+                        </div>
+                        <p class="rank-desc">中国仅存的两大宫殿建筑群之一，清初皇宫。这里不仅建筑精美，更承载了清王朝入关前的历史记忆，红墙黄瓦，极具皇家气派。</p>
+                        <a href="#" class="rank-btn">查看详情与门票</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 第2名 -->
+            <article class="ranking-item">
+                <div class="rank-badge top-2">2</div>
+                <div class="rank-content">
+                    <img src="https://picsum.photos/seed/shenyang_zhongshan/320/240" alt="沈阳中街" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">沈阳中街</h3>
+                        <div class="rank-meta">
+                            <span class="tag">繁华商圈</span>
+                            <span>⭐ 4.6分 (3.8万+评价)</span>
+                            <span>📍 沈河区中街路</span>
+                        </div>
+                        <p class="rank-desc">中国第一条商业步行街，也是沈阳最繁华的商业中心。这里汇聚了众多老字号店铺、现代购物中心，是体验沈阳都市生活与美食的绝佳去处。</p>
+                        <a href="#" class="rank-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 第3名 -->
+            <article class="ranking-item">
+                <div class="rank-badge top-3">3</div>
+                <div class="rank-content">
+                    <img src="https://picsum.photos/seed/shenyang_tiehan/320/240" alt="沈阳棋盘山风景区" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">沈阳棋盘山风景区</h3>
+                        <div class="rank-meta">
+                            <span class="tag">自然风光</span>
+                            <span>⭐ 4.5分 (2.1万+评价)</span>
+                            <span>📍 浑南区棋盘山</span>
+                        </div>
+                        <p class="rank-desc">沈阳最大的自然风景区，拥有秀丽的山水景观和丰富的森林资源。春季踏青、夏季避暑、秋季赏枫、冬季滑雪，四季皆宜。</p>
+                        <a href="#" class="rank-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 第4名 -->
+            <article class="ranking-item">
+                <div class="rank-badge">4</div>
+                <div class="rank-content">
+                    <img src="https://picsum.photos/seed/shenyang_yuhu/320/240" alt="沈阳世博园" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">沈阳世博园</h3>
+                        <div class="rank-meta">
+                            <span class="tag">园林景观</span>
+                            <span>⭐ 4.4分 (1.5万+评价)</span>
+                            <span>📍 浑南区观辽路</span>
+                        </div>
+                        <p class="rank-desc">前身为世界园艺博览会会址，现为国家5A级旅游景区。园区内汇集了世界各地的园林艺术，花卉品种繁多，是摄影爱好者和家庭出游的好去处。</p>
+                        <a href="#" class="rank-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 第5名 -->
+            <article class="ranking-item">
+                <div class="rank-badge">5</div>
+                <div class="rank-content">
+                    <img src="https://picsum.photos/seed/shenyang_jiumen/320/240" alt="九一八历史博物馆" class="rank-thumb">
+                    <div class="rank-info">
+                        <h3 class="rank-title">九一八历史博物馆</h3>
+                        <div class="rank-meta">
+                            <span class="tag">红色旅游</span>
+                            <span>⭐ 4.7分 (1.8万+评价)</span>
+                            <span>📍 大东区望花南街46号</span>
+                        </div>
+                        <p class="rank-desc">为了铭记“九一八”事变而建立的历史博物馆。建筑造型独特，馆内史料详实，是进行爱国主义教育和了解近代沈阳历史的重要场所。</p>
+                        <a href="#" class="rank-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <section id="categories" class="container categories-section">
+        <div class="section-header">
+            <h2>按类型浏览景点</h2>
+        </div>
+        <div class="category-grid">
+            <div class="category-card">
+                <span class="category-icon">🏛️</span>
+                <h3>历史文化</h3>
+                <p>故宫、大帅府、张氏帅府</p>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">🌲</span>
+                <h3>自然风光</h3>
+                <p>棋盘山、辉山、国家森林公园</p>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">🎡</span>
+                <h3>休闲娱乐</h3>
+                <p>沈阳乐园、方特欢乐世界</p>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">⛪</span>
+                <h3>宗教古迹</h3>
+                <p>朝阳寺、实胜寺、慈恩寺</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tips" class="container tips-section">
+        <div class="section-header">
+            <h2>沈阳旅游实用建议</h2>
+        </div>
+        <div class="tips-container">
+            <div class="tips-card">
+                <h3>🚌 交通出行</h3>
+                <ul class="tips-list">
+                    <li><strong>地铁：</strong> 沈阳地铁网络发达，覆盖了故宫、中街、北市场等主要景点，建议下载“沈阳地铁”APP或使用支付宝乘车码。</li>
+                    <li><strong>公交：</strong> 公交线路众多，但高峰期较为拥堵，建议避开早晚高峰时段出行。</li>
+                    <li><strong>打车：</strong> 市区打车起步价较低，使用网约车软件（如滴滴）非常方便。</li>
+                </ul>
+            </div>
+            <div class="tips-card">
+                <h3>🍜 美食推荐</h3>
+                <ul class="tips-list">
+                    <li><strong>特色菜：</strong> 必尝老边饺子、李连贵熏肉大饼、马家烧麦、沈阳鸡架。</li>
+                    <li><strong>夜市：</strong> 去彩电塔夜市或兴顺夜市体验地道的沈阳烧烤和街头小吃。</li>
+                    <li><strong>饮食口味：</strong> 沈阳菜偏咸鲜、重油重色，口味较重，肠胃敏感者请适量尝试。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="container faq-section">
+        <div class="section-header">
+            <h2>常见问题解答</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">沈阳旅游的最佳季节是什么时候？</div>
+                <div class="faq-answer">沈阳四季分明。春季（4-5月）气候宜人，适合踏青；秋季（9-10月）天高气爽，是赏枫和旅游的最佳时期；夏季可以避暑；冬季则可体验冰雪大世界和滑雪项目。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">沈阳故宫和大连金石滩哪个更值得去？</div>
+                <div class="faq-answer">两者风格迥异。沈阳故宫侧重于满清历史和宫廷建筑，位于市区；金石滩侧重于海滨风光和地质奇观，位于大连。如果您是第一次来沈阳，建议优先游览沈阳故宫。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">沈阳有哪些适合带孩子的景点？</div>
+                <div class="faq-answer">推荐沈阳方特欢乐世界、沈阳森林动物园、沈阳世博园等，这些地方互动性强，适合家庭出游。</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p>本站致力于提供最准确的沈阳景点排行榜和旅游攻略，为您的沈阳之行提供有价值的参考。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">景点预订</a></li>
+                        <li><a href="#">酒店住宿</a></li>
+                        <li><a href="#">美食地图</a></li>
+                        <li><a href="#">交通指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱: contact@shenyang-travel.com</li>
+                        <li>电话: 024-88888888</li>
+                        <li>地址: 辽宁省沈阳市和平区</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 沈阳景点排行榜网 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 手风琴效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // 关闭其他已打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
