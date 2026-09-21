@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="末路狂杀 - 深度解析约翰·威克电影宇宙、角色背景、经典枪战场面与动作设计美学。提供电影剧情梳理、冷知识及同人作品推荐。">
+    <meta name="keywords" content="末路狂杀, 约翰威克, John Wick, 动作电影, 枪战, 黑帮电影">
+    <title>末路狂杀 - 深度解析与动作电影指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #c9a227; /* 金色点缀 */
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --bg-dark: #0d0d0d;
+            --bg-card: #141414;
+            --spacing-unit: 1rem;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(13, 13, 13, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid var(--accent-color);
+            padding: 0.25rem 0.75rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            background-image: linear-gradient(to bottom, rgba(13,13,13,0.3), var(--bg-dark)), url('https://picsum.photos/seed/johnwick/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            border-left: 4px solid var(--accent-color);
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e0b030;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--text-main);
+            color: var(--text-main);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 4rem var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent-color), transparent);
+            margin-left: 2rem;
+        }
+
+        /* Character Grid */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid #222;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card-image {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+            filter: grayscale(40%);
+            transition: filter 0.3s ease;
+        }
+
+        .card:hover .card-image {
+            filter: grayscale(0%);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            background-color: #222;
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background-color: #111;
+            padding: 4rem 0;
+        }
+
+        .feature-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .feature-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            line-height: 1rem;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-left: 3px solid #333;
+        }
+
+        .faq-item h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #222;
+            text-align: center;
+        }
+
+        .footer-content {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            margin: 0 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .feature-layout {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none; /* Simplification for mobile */
+            }
+            
+            .header-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo"><span>WICK</span>VERSE</div>
+            <nav>
+                <ul>
+                    <li><a href="#overview">剧情概览</a></li>
+                    <li><a href="#characters">主要角色</a></li>
+                    <li><a href="#philosophy">暴力美学</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>末路狂杀<br>John Wick</h1>
+                <p>一个被世界遗忘的传奇，为了守护最后的记忆，再次举起枪。探索这个冷酷而迷人的地下世界。</p>
+                <div>
+                    <a href="#overview" class="btn">开始探索</a>
+                    <a href="#characters" class="btn btn-outline">角色图鉴</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section id="overview" class="container">
+            <div class="section-title">
+                <h2>剧情概览</h2>
+            </div>
+            <article>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #ccc;">
+                    <strong>《约翰·威克》</strong>系列电影以一名前职业杀手为主角，讲述了他从退役后的平静生活被打破，最终不得不重操旧业的故事。
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+                    <div style="background: #1a1a1a; padding: 2rem; border: 1px solid #333;">
+                        <h3 style="color: var(--accent-color); margin-bottom: 1rem;">第一篇章：归来</h3>
+                        <p style="color: var(--text-muted);">前杀手约翰·威克退休后与妻子相守。妻子去世后留下了一台旧车和一只小狗。然而，一群暴徒闯入家中，偷走了车并杀死了狗。愤怒的威克开始清除所有相关人员，重新成为地下世界眼中的“BOSS”。</p>
+                    </div>
+                    <div style="background: #1a1a1a; padding: 2rem; border: 1px solid #333;">
+                        <h3 style="color: var(--accent-color); margin-bottom: 1rem;">第二篇章：赏金</h3>
+                        <p style="color: var(--text-muted);">威克为了履行对已故老朋友的承诺，杀死了叛逃的竞争对手。这导致他背负了高达1400万的赏金，引来全球顶尖杀手和各大教派的追杀。他在复仇与生存之间寻找出路。</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Character Section -->
+        <section id="characters" class="feature-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心角色</h2>
+                </div>
+                <div class="character-grid">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/wick/400/300" alt="约翰·威克" class="card-image">
+                        <div class="card-content">
+                            <span class="tag">主角</span>
+                            <h3>约翰·威克</h3>
+                            <p>代号"夜魔"。前精英杀手，拥有极高的战斗技巧和枪械造诣。性格内敛，但在触及底线时极度危险。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/charlie/400/300" alt="温斯顿" class="card-image">
+                        <div class="card-content">
+                            <span class="tag">盟友</span>
+                            <h3>温斯顿</h3>
+                            <p>新伦敦Continental酒店经理。表面看似冷漠，实则对威克有深厚情谊，经常在关键时刻提供庇护。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/kae/400/300" alt="凯" class="card-image">
+                        <div class="card-content">
+                            <span class="tag">对手/盟友</span>
+                            <h3>凯</h3>
+                            <p>前女友兼前同伙，经营着地下赌场。在威克被通缉期间，她面临着巨大的生存压力，最终在道德与利益间挣扎。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/hiro/400/300" alt="阿古斯" class="card-image">
+                        <div class="card-content">
+                            <span class="tag">反派</span>
+                            <h3>阿古斯</h3>
+                            <p>希腊黑帮首领，性格狂傲。他试图利用威克来打击竞争对手，却低估了这位传奇杀手的实力。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section id="philosophy" class="container">
+            <div class="section-title">
+                <h2>暴力美学</h2>
+            </div>
+            <div class="feature-layout">
+                <div>
+                    <img src="https://picsum.photos/seed/gun/600/400" alt="枪械与动作设计" class="feature-image">
+                </div>
+                <div class="feature-text">
+                    <h2>不仅是打斗，更是艺术</h2>
+                    <p>《末路狂杀》系列之所以成为经典，在于其对动作场面的极致追求。导演查德·斯塔赫斯基和基努·里维斯亲自参与动作编排，强调<strong>实拍</strong>与<strong>近距离格斗</strong>。</p>
+                    <ul class="feature-list">
+                        <li><strong>精准的枪械控制：</strong> 每一颗子弹都极具杀伤力，枪声与枪口的火焰成为叙事的一部分。</li>
+                        <li><strong>复杂的调度：</strong> 高度协调的群战场景，展现了杀手组织严密的纪律性。</li>
+                        <li><strong>无声的杀戮：</strong> 在不破坏Continental酒店规则的前提下，威克展示了如何悄无声息地清除目标。</li>
+                        <li><strong>情感驱动：</strong> 即使是动作片，威克的每一次出枪都源于情感（复仇、保护、承诺），而非单纯的杀戮。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="feature-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>约翰·威克在Continental酒店能杀人吗？</h4>
+                        <p>根据地下世界的铁律，在Continental酒店内禁止杀戮。任何违反这一规则的人都会被立即驱逐或处决。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>系列电影的观看顺序是什么？</h4>
+                        <p>建议按上映顺序观看：第一部《约翰·威克》 -> 第二部《约翰·威克2》 -> 第四部《疾速追杀4》（第三部为衍生剧《芭蕾复仇》）。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>威克使用的是什么枪械？</h4>
+                        <p>威克最标志性的武器是FN 5.7×28mm P90冲锋枪和Sig Sauer P30L手枪。此外，他常使用自制土制武器。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>谁是电影中最大的BOSS？</h4>
+                        <p>在第四部中，高桌会的高层（The High Table）及其特派员构成了最终的政治和军事威胁，这是对威克最大的挑战。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">隐私政策</a>
+                <a href="#">联系合作</a>
+            </div>
+            <p>&copy; 2023 WickVerse. 本站为粉丝非盈利整理与鉴赏平台。</p>
+            <p style="font-size: 0.8rem; margin-top: 1rem; color: #555;">约翰·威克及相关角色版权归MGM Studios及Thunderbird Entertainment所有。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
